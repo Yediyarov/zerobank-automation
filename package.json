@@ -1,0 +1,11 @@
+{
+  "name": "zerobank-automation",
+  "version": "1.0.0",
+  "description": "Automated testing of ZeroBank",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Khayal Yediyarov",
+  "license": "ISC"
+}
