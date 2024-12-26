@@ -4,8 +4,17 @@
   "description": "Automated testing of ZeroBank",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tests:chrome": "playwright test --config=playwright.config.ts --project=chromium",
+    "tests:firefox": "playwright test --config=playwright.config.ts --project=firefox",
+    "tests:webkit": "playwright test --config=playwright.config.ts --project=webkit"
   },
   "author": "Khayal Yediyarov",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "prettier": "^3.4.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^22.10.2"
+  }
 }
