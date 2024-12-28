@@ -45,4 +45,16 @@ test.describe.parallel('Login/Logout Flow', () => {
         await page.goto('http://zero.webappsecurity.com/logout.html')
         await expect(page).toHaveURL('http://zero.webappsecurity.com/index.html')
     })
+    
+     // Check Remember Me functionality
+     test('Remember Me functionality', async ({page}) => {
+        await homePage.clickOnSingIn()
+        await loginPage.login('username', 'password') // Assuming the login method accepts a third parameter for "Remember Me"
+
+        const accountSummaryTab = await page.locator('#account_summary_tab')
+        await expect(accountSummaryTab).toBeVisible({ timeout: 10000 })
+
+        await page.reload()
+        await expect(accountSummaryTab).toBeVisible({ timeout: 10000 }) // Verify user is still logged in after reload
+    })
 })
