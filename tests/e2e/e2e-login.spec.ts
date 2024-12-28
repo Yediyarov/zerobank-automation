@@ -24,4 +24,14 @@ test.describe.parallel('Login/Logout Flow', () => {
         await page.goto('http://zero.webappsecurity.com/logout.html')
         await expect(page).toHaveURL('http://zero.webappsecurity.com/index.html')
     })
+
+    // Positive Scenario
+    test('Positive Scenario for Login', async ({page}) => {
+        await homePage.clickOnSingIn()
+        await loginPage.login('username', 'password')
+
+        const accountSummaryTab = await page.locator('#account_summary_tab')
+        await expect(accountSummaryTab).toBeVisible({ timeout: 10000 }) // Increased timeout to 10 seconds
+    })
+
 })
