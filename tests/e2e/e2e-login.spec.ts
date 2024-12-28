@@ -34,4 +34,15 @@ test.describe.parallel('Login/Logout Flow', () => {
         await expect(accountSummaryTab).toBeVisible({ timeout: 10000 }) // Increased timeout to 10 seconds
     })
 
+    // Logout Scenario
+    test('Logout Scenario', async ({page}) => {
+        await homePage.clickOnSingIn()
+        await loginPage.login('username', 'password')
+
+        const accountSummaryTab = await page.locator('#account_summary_tab')
+        await expect(accountSummaryTab).toBeVisible({ timeout: 10000 })
+
+        await page.goto('http://zero.webappsecurity.com/logout.html')
+        await expect(page).toHaveURL('http://zero.webappsecurity.com/index.html')
+    })
 })
