@@ -23,7 +23,7 @@ test.describe('Transfer funds and make payments', () => {
     })
     
     test('Transfer funds', async ({ page }) => {
-        await navbar.clickOnTab('Transfer funds')
+        await navbar.clickOnTab('Transfer Funds')
         await transferPage.createTransfer()
         await transferPage.verifyTransfer()
         await transferPage.assertSuccessMessage()
