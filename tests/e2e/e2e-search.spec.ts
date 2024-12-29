@@ -19,4 +19,15 @@ test.describe.parallel('Search Flow', () => {
         const expectedText = `The following pages were found for the query: ${searchedPhase}`
         await expect(page.getByText(expectedText)).toBeVisible();
     })
+
+    // Search for an invalid term
+    test('Search for an invalid term', async ({page}) => {
+        const searchedPhase = 'invalid search term'
+        await homePage.searchFor(searchedPhase)
+        await homePage.wait(3000)
+
+        const expectedText = `No results were found for the query: ${searchedPhase}`
+        await expect(page.getByText(expectedText)).toBeVisible();
+        
+    })
 })
