@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test'
 import { HomePage } from '../../page-objects/HomePage'
 import { LoginPage } from '../../page-objects/LoginPage'
 
-test.describe('Section_04_KO_UI_Tests : E2E and POM - Currency Exchange Form', () => {
+test.describe('Currency Exchange Form', () => {
   let homePage: HomePage
   let loginPage: LoginPage
 
