@@ -16,7 +16,7 @@ test.describe.parallel('Login/Logout Flow', () => {
 
     // Negative Scenario
     test('Negative Scenario for Login', async ({page}) => {
-        await homePage.clickOnSingIn()
+        await homePage.clickOnSignIn()
         await loginPage.login('invalid username', 'invalid password')
         await loginPage.wait(3000)
         await loginPage.assertErrorMessage()
@@ -27,7 +27,7 @@ test.describe.parallel('Login/Logout Flow', () => {
 
     // Positive Scenario
     test('Positive Scenario for Login', async ({page}) => {
-        await homePage.clickOnSingIn()
+        await homePage.clickOnSignIn()
         await loginPage.login('username', 'password')
 
         const accountSummaryTab = await page.locator('#account_summary_tab')
@@ -36,7 +36,7 @@ test.describe.parallel('Login/Logout Flow', () => {
 
     // Logout Scenario
     test('Logout Scenario', async ({page}) => {
-        await homePage.clickOnSingIn()
+        await homePage.clickOnSignIn()
         await loginPage.login('username', 'password')
 
         const accountSummaryTab = await page.locator('#account_summary_tab')
@@ -48,7 +48,7 @@ test.describe.parallel('Login/Logout Flow', () => {
     
      // Check Remember Me functionality
      test('Remember Me functionality', async ({page}) => {
-        await homePage.clickOnSingIn()
+        await homePage.clickOnSignIn()
         await loginPage.login('username', 'password') // Assuming the login method accepts a third parameter for "Remember Me"
 
         const accountSummaryTab = await page.locator('#account_summary_tab')

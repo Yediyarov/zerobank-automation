@@ -17,7 +17,7 @@ export class HomePage  extends AbstractPage{
         await this.page.goto('http://zero.webappsecurity.com/')
     }
     
-    async clickOnSingIn(){
+    async clickOnSignIn(){
         await this.signInButton.click()
     }
 
