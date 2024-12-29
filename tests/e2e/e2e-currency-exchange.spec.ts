@@ -1,14 +1,17 @@
 import { test, expect } from '@playwright/test'
 import { HomePage } from '../../page-objects/HomePage'
 import { LoginPage } from '../../page-objects/LoginPage'
+import { Navbar } from '../../page-objects/components/Navbar'
 
 test.describe('Currency Exchange Form', () => {
   let homePage: HomePage
   let loginPage: LoginPage
+  let navbar: Navbar
 
   test.beforeEach(async ({ page }) => {
     homePage = new HomePage(page)
     loginPage = new LoginPage(page)
+    navbar = new Navbar(page)
 
     homePage.visit()
     homePage.clickOnSignIn()
@@ -16,7 +19,7 @@ test.describe('Currency Exchange Form', () => {
   })
 
   test('Should make currency exchange', async ({ page }) => {
-    await page.click('#pay_bills_tab')
+    await navbar.clickOnTab('Pay Bills')
     await page.click('text=Purchase Foreign Currency')
     await page.selectOption('#pc_currency', 'EUR')
 

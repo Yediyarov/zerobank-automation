@@ -1,14 +1,17 @@
 import { test, expect } from '@playwright/test'
 import { HomePage } from '../../page-objects/HomePage'
 import { LoginPage } from '../../page-objects/LoginPage'
+import { Navbar } from '../../page-objects/components/Navbar'
 
 test.describe('Filter Transactions', () => {
   let homePage: HomePage
   let loginPage: LoginPage
+  let navbar: Navbar
 
   test.beforeEach(async ({ page }) => {
     homePage = new HomePage(page)
     loginPage = new LoginPage(page)
+    navbar = new Navbar(page)
 
     homePage.visit()
     homePage.clickOnSignIn()
@@ -16,7 +19,7 @@ test.describe('Filter Transactions', () => {
   })
 
   test('Verify the results for each account', async ({ page }) => {
-    await page.click('#account_activity_tab')
+    navbar.clickOnTab('Account Activity')
     await page.selectOption('#aa_accountId', '2')
     const checkingAccount = await page.locator(
       '#all_transactions_for_account tbody tr'
