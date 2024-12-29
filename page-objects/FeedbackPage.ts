@@ -17,7 +17,7 @@ export class FeedbackPage {
         this.subjectInput = page.locator('#subject')
         this.commentInput = page.locator('#comment')
         this.submitButton = page.locator('input[type="submit"]')
-        this.clearButton = page.locator('input[name="reset"]')
+        this.clearButton = page.locator('input[name="clear"]')
         this.feedbackTitle = page.locator('#feedback-title')
     }
 
